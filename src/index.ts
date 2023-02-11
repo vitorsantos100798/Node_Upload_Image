@@ -14,7 +14,9 @@ const upload = multer({
 });
 
 app.post("/teste", upload.single("image"), (req, res) => {
-  return res.send("Imagem Upload Ok");
+  return res.status(201).json({
+    message: "success",
+  });
 });
 
 app.listen(1010, () => console.log("Servidor no ar....."));
